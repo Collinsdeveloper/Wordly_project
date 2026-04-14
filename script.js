@@ -7,8 +7,8 @@ const API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    
     const word = input.value.trim();
-
     result.innerHTML = "";
     errorDiv.textContent = "";
 
@@ -23,17 +23,26 @@ form.addEventListener("submit", async (e) => {
         displayWord(data[0]);
 
     } catch (error) {
-        errorDiv.textContent = "❌ Word not found. Try another one.";
+        errorDiv.textContent = "❌ Word not found. Please try another word.";
     }
 });
 
 function displayWord(data) {
     const meaning = data.meanings[0];
+    
+    const phonetic = data.phonetic || "Not available";
+    const audio = data.phonetics[0]?.audio || "";
 
     result.innerHTML = `
         <h2>${data.word}</h2>
+        <p><strong>Pronunciation:</strong> ${phonetic}</p>
+        ${audio ? `<button class="pronounce-btn" onclick="playAudio('${audio}')">🔊 Play Audio</button>` : ""}
         <p><strong>Part of Speech:</strong> ${meaning.partOfSpeech}</p>
         <p><strong>Definition:</strong> ${meaning.definitions[0].definition}</p>
-        <p><strong>Example:</strong> ${meaning.definitions[0].example || "No example available"}</p>
     `;
+}
+
+function playAudio(url) {
+    const audio = new Audio(url);
+    audio.play();
 }
