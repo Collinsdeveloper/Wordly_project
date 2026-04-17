@@ -1,59 +1,105 @@
+/* Page layout */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f7;
     display: flex;
     justify-content: center;
-    align-items: start;
-    height: 100vh;
-    margin: 0;
-    padding-top: 40px;
+    align-items: flex-start;
+    padding: 50px 15px;
 }
 
+/* Card wrapper */
 .container {
-    background: white;
-    padding: 20px;
-    width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 420px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
+/* Title */
 h1 {
     text-align: center;
+    margin-bottom: 18px;
+    color: #2c3e50;
 }
 
+/* Form row */
 form {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 8px;
 }
 
+/* Text input */
 input {
-    flex: 1;
-    padding: 8px;
+    flex-grow: 1;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #d0d7e2;
+    font-size: 14px;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
+input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 4px rgba(37, 99, 235, 0.3);
+    outline: none;
+}
+
+/* Primary button */
 button {
-    padding: 8px 12px;
-    cursor: pointer;
+    padding: 10px 14px;
     border: none;
-    background: #007BFF;
-    color: white;
-    border-radius: 5px;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
-    background: #0056b3;
+    background-color: #1e4fd1;
+    transform: translateY(-1px);
 }
 
+/* Result panel */
 #result {
-    margin-top: 20px;
+    margin-top: 22px;
+    background-color: #f8fafc;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #e5eaf1;
 }
 
+/* Error text */
 #error {
-    color: red;
-    margin-top: 10px;
+    margin-top: 12px;
+    color: #c0392b;
+    font-weight: 500;
 }
 
+/* Pronunciation button */
 .pronounce-btn {
-    margin: 10px 0;
-    background: #28a745;
+    margin: 12px 0;
+    background-color: #16a34a;
+}
+
+.pronounce-btn:hover {
+    background-color: #15803d;
+}
+
+/* Result text spacing */
+#result p {
+    margin: 6px 0;
+    line-height: 1.5;
+}
+
+/* Word heading */
+#result h2 {
+    margin-bottom: 8px;
+    color: #2563eb;
 }
